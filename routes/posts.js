@@ -1,4 +1,7 @@
-exports.readTitle = function (req, res) {
+exports.showPosts = function (req, res){
+    res.send("show posts here");
+};
+exports.readPost = function (req, res) {
 //    var PName = req.params.name;
 //    db.collection('products', function (err, collection) {
 //        collection.find({ "PName": PName }).toArray(function (err, names) {
@@ -8,8 +11,6 @@ exports.readTitle = function (req, res) {
 //    }); //End db.collection()
     res.header("Content-Type", "text");
     res.send("hello " + req.params.Title);
-
-
 };
 exports.createPost = function (req, res) {
     res.header("Content-Type", "text");

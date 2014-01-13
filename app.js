@@ -32,7 +32,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.index);
-app.get('/posts/:Title', posts.readTitle);
+app.get('/posts/:Title', posts.readPost);
 app.post('/posts/:Title/:Author/:Body',posts.createPost);
 app.put('/posts/:Title/:Author/:Body', posts.updatePost);
 //app.delete('/posts/:Title', posts.deletePosts);
@@ -43,6 +43,13 @@ app.put('/posts/:Title/:Author/:Body', posts.updatePost);
 //mongodb
 db.connect('mongodb://localhost/hellonode');
 Schema = db.Schema;
+
+var Posts = new Schema({
+    title    : String,
+    author   : String,
+    body     : String,
+    updated_at : Date
+});
 
 
 
