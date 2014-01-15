@@ -9,7 +9,7 @@ var posts = require('./routes/posts');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
-var db = require('mongoose');
+
 
 var app = express();
 
@@ -40,16 +40,16 @@ app.put('/posts/:Title/:Author/:Body', posts.updatePost);
 
 
 
-//mongodb
-db.connect('mongodb://localhost/hellonode');
-Schema = db.Schema;
-
-var Posts = new Schema({
-    title    : String,
-    author   : String,
-    body     : String,
-    updated_at : Date
-});
+////mongodb
+//db.connect('mongodb://localhost/hellonode');
+//Schema = db.Schema;
+//
+//var Posts = new Schema({
+//    title    : String,
+//    author   : String,
+//    body     : String,
+//    updated_at : Date
+//});
 
 
 

@@ -1,3 +1,26 @@
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/hellonode');
+var db = mongoose.connection;
+var Schema = mongoose.Schema;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+    // yay!
+});
+
+var postSchema = new Schema({
+    title:  String,
+    author: String,
+    body:   String,
+    comments: [{ body: String, date: Date }],
+    date: { type: Date, default: Date.now },
+    hidden: Boolean,
+    meta: {
+        votes: Number,
+        favs:  Number
+    }
+});
+var Post = mongoose.model('Post', postSchema);
+
 exports.showPosts = function (req, res){
     res.send("show posts here");
 };
@@ -12,9 +35,19 @@ exports.readPost = function (req, res) {
     res.header("Content-Type", "text");
     res.send("hello " + req.params.Title);
 };
+
+
+
 exports.createPost = function (req, res) {
-    res.header("Content-Type", "text");
-    res.send("read functon");
+        new Post({
+            title   : req.params.Title,
+            author  : req.params.Author,
+            body    : req.params.Body,
+            date : Date.now()
+        }).save( function( err, post, count ){
+                res.redirect( '/' );
+            });
+
 };
 exports.updatePost = function (req, res) {
     res.header("Content-Type", "text");
