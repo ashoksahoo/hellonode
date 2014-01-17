@@ -21,6 +21,16 @@ var postSchema = new Schema({
 });
 var Post = mongoose.model('Post', postSchema);
 
+exports.newPost = function (req,res) {
+    res.render ('newpost');
+};
+
+exports.editPost = function (req,res) {
+    res.render ('editpost',{post : req.params.Title});
+};
+
+
+
 exports.showPosts = function (req, res){
     res.send("show posts here");
 };
