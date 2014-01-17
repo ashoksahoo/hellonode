@@ -32,6 +32,9 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.index);
+app.get('/posts', posts.showPosts);
+app.get('/posts/new', posts.newPost);
+app.get('posts/edit/:Title', posts.editPost);
 app.get('/posts/:Title', posts.readPost);
 app.post('/posts/:Title/:Author/:Body',posts.createPost);
 app.put('/posts/:Title/:Author/:Body', posts.updatePost);
