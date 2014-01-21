@@ -43,16 +43,16 @@ exports.readPost = function (req, res) {
 //        }); // End Collection.find()
 //    }); //End db.collection()
     res.header("Content-Type", "text");
-    res.send("hello " + req.params.Title);
+    res.send("hello " + req.param.Title);
 };
 
 
 
 exports.createPost = function (req, res) {
         new Post({
-            title   : req.params.Title,
-            author  : req.params.Author,
-            body    : req.params.Body,
+            title   : req.param("title"),
+            body   : req.param("body"),
+            author   : req.param("author"),
             date : Date.now()
         }).save( function( err, post, count ){
                 res.redirect( '/' );
