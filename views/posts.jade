@@ -1,2 +1,11 @@
 extends layout
 block content
+
+    body
+        div.container(ng-controller="hellonode")
+            h1 Posts
+            ul(ng-repeat='posts in posts')
+                li{{posts.title}}
+                li{{posts.Author}}
+                li{{posts.Body}}
+
