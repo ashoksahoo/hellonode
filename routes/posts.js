@@ -32,8 +32,35 @@ exports.editPost = function (req,res) {
 
 
 exports.showPosts = function (req, res){
-    res.send("show posts here");
+
+    /*db.collection('posts', function (err, collection) {
+        collection.find().toArray(function (err, names) {
+            res.header("Content-Type:", "application/json");
+            res.send(JSON.stringify(names));
+        });
+    });*/
+    return Post.find(function (err, posts) {
+        if (!err) {
+            res.render('posts', {
+                title: 'Posts'
+            });
+        } else {
+            return console.log(err);
+        }
+    });
 };
+
+exports.showPostsAPI = function (req, res){
+    return Post.find(function (err, posts) {
+        if (!err) {
+            return res.send(posts);
+        } else {
+            return console.log(err);
+        }
+    });
+};
+
+
 exports.readPost = function (req, res) {
 //    var PName = req.params.name;
 //    db.collection('products', function (err, collection) {
@@ -55,7 +82,7 @@ exports.createPost = function (req, res) {
             author   : req.param("author"),
             date : Date.now()
         }).save( function( err, post, count ){
-                res.redirect( '/' );
+                res.redirect( '/',301 );
             });
 
 };
