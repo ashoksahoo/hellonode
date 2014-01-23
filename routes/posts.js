@@ -41,9 +41,8 @@ exports.showPosts = function (req, res){
     });*/
     return Post.find(function (err, posts) {
         if (!err) {
-            res.render('posts', {
-                title: 'Posts'
-            });
+            res.render('posts');
+            exports.postsContoller = posts;
         } else {
             return console.log(err);
         }

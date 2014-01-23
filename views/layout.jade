@@ -1,10 +1,17 @@
 doctype html
 html(ng-app = 'hellonode')
-  head
-    title= title
-    link(rel='stylesheet', href='/css/bootstrap.css')
-    link(rel='stylesheet', href='/css/style.css')
-    link(rel='script', href='/js/bootstrap.min.js')
-    link(rel='script', href='/js/angular.min.js')
+    head
+        title= title
+
+        //include includes/metaInfo
+        //include includes/styles
+        //include includes/scripts
+        link(rel='stylesheet', href='/css/bootstrap.css')
+        link(rel='stylesheet', href='/css/style.css')
+        link(rel='script', href='/js/bootstrap.min.js')
+        link(rel='script', href='/js/angular.min.js')
+
+        block scripts
+
     body
-    block content
+        block content

@@ -1,11 +1,13 @@
 extends layout
 block content
 
-    body
-        div.container(ng-controller="hellonode")
-            h1 Posts
-            ul(ng-repeat='posts in posts')
-                li{{posts.title}}
-                li{{posts.Author}}
-                li{{posts.Body}}
+    div.container(ng-controller= "AppCtrl")
+        h1 Posts
+        ul(ng-repeat='post in airports')
+            li{{post.code}}
+            li{{post.name}}
+            li{{post.city}}
 
+block scripts
+
+    link(rel='script', href='/js/post_controller.js')
