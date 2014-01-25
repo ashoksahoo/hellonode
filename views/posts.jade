@@ -1,13 +1,15 @@
 extends layout
 block content
-
-    div.container(ng-controller= "AppCtrl")
-        h1 Posts
-        ul(ng-repeat='post in airports')
-            li{{post.code}}
-            li{{post.name}}
-            li{{post.city}}
+        div.container(ng-controller='AppCtrl')
+            h1 Posts
+            ul(ng-repeat='post in posts')
+                li
+                    | {{post.title}}
+                li
+                    | {{post.author}}
+                li
+                    | {{post.body}}
 
 block scripts
+        script(src='js/app.js')
 
-    link(rel='script', href='/js/app.js')

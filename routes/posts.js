@@ -94,6 +94,3 @@ exports.deletePost = function (req, res) {
     res.send("read functon");
 };
 
-
-
-
