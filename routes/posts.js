@@ -81,7 +81,7 @@ exports.createPost = function (req, res) {
             author   : req.param("author"),
             date : Date.now()
         }).save( function( err, post, count ){
-                res.redirect( '/',301 );
+                res.redirect( '/posts',301 );
             });
 
 };
