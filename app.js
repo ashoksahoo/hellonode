@@ -9,6 +9,7 @@ var posts = require('./routes/posts');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var passport = require('passport');
 
 
 var app = express();
@@ -37,6 +38,7 @@ app.get('/api/posts', posts.showPostsAPI);
 app.get('/posts/new', posts.newPost);
 app.get('posts/edit/:Title', posts.editPost);
 app.post('/posts', posts.createPost);
+
 
 //app.get('/posts/:Title', posts.readPost);
 //app.put('/posts/:Title/:Author/:Body', posts.updatePost);

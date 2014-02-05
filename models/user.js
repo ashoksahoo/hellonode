@@ -6,5 +6,4 @@ var UserSchema = new Schema({
     hashed_password: STRING
 });
 
-mongoose.model('Message', UserSchema);
-var User = mongoose.model('Message');
+var User = mongoose.model('Message', UserSchema);
